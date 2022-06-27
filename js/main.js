@@ -286,6 +286,20 @@
 		})
 	};
 
+	var attachDownloadBtn = function(){
+		let btnDownload = document.querySelector("#download_cv");
+		btnDownload.addEventListener("click", startDownload);
+
+	}
+
+	async function startDownload() {
+		let url = "Mohit-Kaushal.pdf";
+		let fileName = "Mohit Kaushal";
+		const res = await fetch(url);
+		const blob = await res.blob();
+		saveAs(blob, fileName);
+	}
+
 	// Document on load.
 	$(function(){
 		fullHeight();
@@ -293,7 +307,7 @@
 		counterWayPoint();
 		contentWayPoint();
 		burgerMenu();
-
+		attachDownloadBtn();
 		clickMenu();
 		// navActive();
 		navigationSection();
